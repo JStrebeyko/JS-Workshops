@@ -1,0 +1,26 @@
+.slider ul{
+    list-style: none;
+}
+
+.slider li{
+    display: none;
+}
+
+.slider img {
+    width: 550px;
+    height: 300px;
+}
+
+button {
+    width: 50%;
+    z-index: 99;
+}
+
+#nextPicture {
+    float: right;
+}
+.slider .visible{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
