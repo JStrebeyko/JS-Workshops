@@ -7,7 +7,17 @@
     <script src="js/app.js" type="text/javascript"></script>
 </head>
 <body>
-
+<h1>It's a Gallery with a Filter, watch out!</h1>
+<p>available tags: <span>baseball</span>,
+                <span>sport</span>,
+                <span>bike</span>,
+                <span>motorbike</span>,
+                <span>nightlife</span>,
+                <span>people</span> <br>
+    <input id="tagInput" type="text" placeholder="Enter tags to show/hide">
+    <button id="showButton">Show</button>
+    <button id="hideButton">Hide</button></p>
+<hr>
 <div id="gallery">
     <img data-tag="baseball,sport,people" src="images/1.jpeg">
     <img data-tag="bike,people" src="images/2.jpeg">
@@ -17,9 +27,5 @@
     <img data-tag="nightlife" src="images/6.jpeg">
 </div>
 
-<input id="tagInput" type="text" placeholder="Enter tag here">
-<br>
-<button id="showButton">Show</button>
-<button id="hideButton">Hide</button>
 </body>
 </html>
