@@ -29,5 +29,6 @@ document.addEventListener("DOMContentLoaded", function(){
 //     for (i=0; i<spans.length; i++) {
 //         spans[i].addEventListener("click", () => {
 //             let text=spans[i].innerText
+
 //     }}
 });
