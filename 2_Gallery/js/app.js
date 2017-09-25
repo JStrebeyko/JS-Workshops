@@ -6,7 +6,7 @@ const body = document.querySelector("body")
 for (var i = 0 ; i < pictures.length; i++) {
    pictures[i].addEventListener('click' , function(){
 
-//necessary full screen eleents into variables
+//necessary full screen elements into variables
        let fullScreen = document.createElement("div");
        let fullImg = document.createElement("img");
        let clsBtn = document.createElement("button");
