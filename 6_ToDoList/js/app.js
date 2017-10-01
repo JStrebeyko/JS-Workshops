@@ -1,38 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
+// basic DOM variables
+
     const toDoList = document.querySelector("#toDoList");
-    console.warn(toDoList);
-
     const taskInput = document.querySelector("#taskInput");
-    console.log("Taskbutton: ",taskInput);
-
     const addTaskButton = document.querySelector("#addTaskButton");
-    console.log("addTaskButton: ",addTaskButton);
-
     const taskList = document.querySelector("#taskList");
-    console.log("taskList: ",taskList);
-
     const removeFinishedTasksButton = document.querySelector("#removeFinishedTasksButton");
-    console.log("removeFinishedTasksButton: ",removeFinishedTasksButton);
 
+// Counter - we do it first, as later on some functionalities are modifying numberOfTasks
 
+    const counter = document.createElement("span");
+    counter.classList.add("counter");
+    toDoList.appendChild(counter);
     let numberOfTasks = 0;
-    console.log(numberOfTasks);
+    counter.innerText = numberOfTasks;
 
 
-         // add new task functionality:
-
+ // addTaskButton functionality:
 
     addTaskButton.addEventListener("click", () => {
         if (taskInput.value.length < 5 || taskInput.value.length > 100 ) {
              console.warn("The task description must fit between five and hundret signs!");
          } else {
              numberOfTasks++;
-             console.log(numberOfTasks)
-
-             let counter = document.createElement("span");
-             counter.classList.add("counter");
-             toDoList.appendChild(counter);
              counter.innerText = numberOfTasks;
 
 
@@ -42,8 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
              let newTaskDeleteButton = document.createElement("button");
              newTaskDeleteButton.innerHTML = "Delete";
              newTaskDeleteButton.addEventListener("click", () => {
-                 numberOfTasks--;
                  newTask.parentElement.removeChild(newTask);
+                 numberOfTasks--;
+                 counter.innerText = numberOfTasks;
+
              });
 
              let newTaskCompleteButton = document.createElement("button");
@@ -52,19 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
                  event.target.parentElement.classList.toggle("complete");
                  if (event.target.parentElement.classList.contains("complete")) {
                      numberOfTasks--;
-                     console.log(numberOfTasks);
                      toDoList.appendChild(counter);
+                     counter.innerText = numberOfTasks;
+
                  } else {
                      numberOfTasks++;
                      toDoList.appendChild(counter);
-                     console.log(numberOfTasks);
+                     counter.innerText = numberOfTasks;
                  }
-                 console.log(numberOfTasks);
-
              });
-
-
-
 
             newTask.appendChild(newTaskTitle);
             newTask.appendChild(newTaskDeleteButton);
@@ -72,24 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.appendChild(newTask);
 
             taskInput.value = "";
-
         }
     })
 
-
-//var removeCompletedArr = [...document.querySelectorAll("li")];
+// removeFinishedTasksButton functionality
     removeFinishedTasksButton.addEventListener("click", () => {
 
         let removeCompletedArr = [...document.querySelectorAll("li")]
         function deleteAllCompleted (element) {
             if (element.classList.contains("complete")) {
-                element.parentElement.removeChild(element);
-                numberOfTasks=numberOfTasks-1;
-
+                element.parentElement.remov eChild(element);
             }
         }
             removeCompletedArr.forEach(deleteAllCompleted);
     });
-
-
 });
